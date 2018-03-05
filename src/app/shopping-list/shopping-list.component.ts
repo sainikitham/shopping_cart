@@ -9,9 +9,13 @@ import { ShoppingListService } from './shopping-list.service';
 })
 export class ShoppingListComponent implements OnInit {
   ingrediants: Ingrediant[] ;
+
    constructor(private _ShoppingListService: ShoppingListService) { }
 
   ngOnInit() {
     this.ingrediants = this._ShoppingListService.getIngrediant();
+  }
+  onedititem(i: number) {
+   this._ShoppingListService.startededitting.next(i);
   }
 }

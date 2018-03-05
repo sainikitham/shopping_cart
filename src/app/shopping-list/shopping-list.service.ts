@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Ingrediant } from '../shared/ingrediant.model';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class ShoppingListService {
@@ -7,6 +8,7 @@ export class ShoppingListService {
     new Ingrediant('tomato', 10),
     new Ingrediant('apples', 6),
   ];
+  startededitting = new Subject();
   constructor() { }
   getIngrediant() {
     return this.ingrediants;
@@ -16,5 +18,12 @@ export class ShoppingListService {
   }
   addArrayIngrediant(ingrediant: Ingrediant[]) {
     this.ingrediants.push(...ingrediant);
+  }
+  getEditIngrediant(index: number) {
+    return this.ingrediants[index];
+  }
+  updateIngrediant(i, newing) {
+    this.ingrediants[i] = newing;
+
   }
 }

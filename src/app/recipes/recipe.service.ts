@@ -1,10 +1,10 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { Ingrediant } from '../shared/ingrediant.model';
 
 @Injectable()
 export class RecipeService {
-  recipeSelected = new EventEmitter<Recipe>();
+  
   private recipes: Recipe[] = [
     // tslint:disable-next-line:max-line-length
     new Recipe('Brownie Batter Desserts', 'Go home, cookie dough. You are drunk.', 'http://del.h-cdn.co/assets/16/03/980x490/landscape-1453255739-delish-foodstirs-takeover-brownie-ice-cream-scooped.jpg',

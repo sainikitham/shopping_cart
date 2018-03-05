@@ -3,7 +3,7 @@
     <app-shopping-edit ></app-shopping-edit>
     <hr>
     <div class="list-group">
-      <a href="#" class="list-group-item list-group-item-action" *ngFor="let ingre of ingrediants">
+      <a  class="list-group-item list-group-item-action" *ngFor="let ingre of ingrediants;let i = index" (click)="onedititem(i)">
         {{ingre.name}} ({{ingre.amount}})
       </a>
     </div>
