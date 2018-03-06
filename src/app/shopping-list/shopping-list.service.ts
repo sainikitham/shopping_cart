@@ -22,6 +22,9 @@ export class ShoppingListService {
   getEditIngrediant(index: number) {
     return this.ingrediants[index];
   }
+  deleteingrediant(index: number) {
+    this.ingrediants = this.ingrediants.splice(index, 1);
+  }
   updateIngrediant(i, newing) {
     this.ingrediants[i] = newing;
 

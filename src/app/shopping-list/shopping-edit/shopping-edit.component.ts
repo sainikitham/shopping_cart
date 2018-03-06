@@ -2,6 +2,8 @@ import { Component, OnInit, Output, Input, EventEmitter, ViewChild, ElementRef }
 import { Ingrediant } from '../../shared/ingrediant.model';
 import { ShoppingListService } from '../shopping-list.service';
 import { NgForm } from '@angular/forms';
+
+
 @Component({
   selector: 'app-shopping-edit',
   templateUrl: './shopping-edit.component.html',
@@ -11,8 +13,8 @@ export class ShoppingEditComponent implements OnInit {
   name;
   amount: number;
   index: number;
-  
   editmode = false;
+  @ViewChild('heroForm') public heroForm: NgForm;
   edittedingre: Ingrediant;
   @Input() formname: string;
   @Output() formamount: string;
@@ -40,8 +42,12 @@ export class ShoppingEditComponent implements OnInit {
     this.editmode = false;
     form.reset();
     }
-    onclear(heroForm) {
-     heroForm.reset();
+    onclear() {
+     this.heroForm.reset();
      this.editmode = false;
+    }
+    ondelete() {
+      this._ShoppingListService.deleteingrediant(this.index);
+      this.onclear();
     }
 }
