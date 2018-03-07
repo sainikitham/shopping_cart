@@ -8,6 +8,7 @@ export class ShoppingListService {
     new Ingrediant('tomato', 10),
     new Ingrediant('apples', 6),
   ];
+  new_ingrediants: Ingrediant;
   startededitting = new Subject();
   constructor() { }
   getIngrediant() {
@@ -23,7 +24,7 @@ export class ShoppingListService {
     return this.ingrediants[index];
   }
   deleteingrediant(index: number) {
-    this.ingrediants = this.ingrediants.splice(index, 1);
+    this.ingrediants.splice(index, 1);
   }
   updateIngrediant(i, newing) {
     this.ingrediants[i] = newing;
