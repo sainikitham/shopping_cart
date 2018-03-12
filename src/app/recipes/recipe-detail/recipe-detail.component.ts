@@ -23,6 +23,10 @@ export class RecipeDetailComponent implements OnInit {
       this.recipe = this._RecipeService.getspecificRecipe(this.id);
    });
   }
+  ondelete() {
+     this._RecipeService.deleterecipe(this.id);
+     this.router.navigate(['../'], {relativeTo: this.route});
+    }
   toshpnglist() {
     this._ShoppingListService.addArrayIngrediant(this.recipe.ingrediants);
   }
